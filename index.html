@@ -312,16 +312,22 @@ function moveNo(){
 }
 
 function yesClicked(){
+  // START MUSIC ON CLICK
+  const audio = document.getElementById("bgMusic");
+  audio.play().catch(()=>console.log("Audio play blocked by browser"));
+
+  // SHOW SCENE 2
   document.getElementById("scene1").classList.add("hidden");
   document.getElementById("scene2").classList.remove("hidden");
   startHearts();
   startRandomGIFs();
   confettiBurst();
 
+  // TRANSITION TO SCENE 3
   setTimeout(()=>{
     document.getElementById("scene2").classList.add("hidden");
     document.getElementById("scene3").classList.remove("hidden");
-  },3000);
+  }, 3000);
 }
 
 function openLetter(){
@@ -413,3 +419,4 @@ overlay.addEventListener("click", function(e){
 </script>
 </body>
 </html>
+
